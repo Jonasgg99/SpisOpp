@@ -1,0 +1,12 @@
+{
+  "recipes": [
+    {
+      "name": "soup",
+      "ingredients": ["carrots", "onion", "beef"]
+    },
+    {
+      "name": "meat",
+      "ingredients": ["chicken", "lard", "beef"]
+    }
+  ]
+}
