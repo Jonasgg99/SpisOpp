@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import SearchBar from './components/SearchBar'
 import List from './components/List'
 import Notification from './components/Notification'
+import ChipsArray from './components/Pantry'
 import {initializeRecipes} from './reducers/recipeReducer'
 import { useDispatch } from 'react-redux'
 
@@ -21,6 +22,7 @@ const App = () => {
       <h1>Restemat</h1>
       <Notification />
       <SearchBar />
+      <ChipsArray />
       <List />
     </Container>
   );

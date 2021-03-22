@@ -4,11 +4,13 @@ import filterReducer from './reducers/filterReducer'
 import recipeReducer from './reducers/recipeReducer'
 import notificationReducer from './reducers/notificationReducer'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import optionReducer from './reducers/optionReducer'
 
 const reducer = combineReducers({
   filter: filterReducer,
   recipes: recipeReducer,
-  notification: notificationReducer
+  notification: notificationReducer,
+  options: optionReducer
 })
 
 const store = createStore(
