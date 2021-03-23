@@ -4,7 +4,7 @@ import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';
 import { useSelector, useDispatch } from 'react-redux'
 import { removeIngredient, removeAllIngredients } from '../reducers/filterReducer'
-import { addOption } from '../reducers/optionReducer'
+import { addOption, resetOptions } from '../reducers/optionReducer'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,7 +51,10 @@ export default function ChipsArray() {
         color="secondary" 
         className={classes.chip} 
         label="Clear all" 
-        onClick={() => dispatch(removeAllIngredients())} />
+        onClick={() => {
+          dispatch(removeAllIngredients())
+          dispatch(resetOptions())
+        }} />
     </Paper>
   );
     } else {

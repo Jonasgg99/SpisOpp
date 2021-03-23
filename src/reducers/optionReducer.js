@@ -16,27 +16,28 @@ export const addOption = (data) => {
 export const initializeOptions = () => {
   return {
     type:'INIT_OPTIONS',
-    data: ['','carrots','løk','tomat','tomatjuice']
+    data: {all:['','carrots','løk','tomat','tomatjuice'],
+            current:['','carrots','løk','tomat','tomatjuice']}
   }
 }
 
-export const setOptions = () => {
+export const resetOptions = () => {
   return {
     type:'RESET_OPTIONS'
   }
 }
 
-const optionReducer = (state = ['','tomat','løk','carrots','tomatjuice'], action) => {
+const optionReducer = (state = {current:[],all:[]}, action) => {
   switch(action.type) {
     case 'ADD_OPTION':
       console.log('adding');
-      return [...state, action.data]
+      return {...state, current:[...state.current, action.data]}
     case 'REMOVE_OPTION':
-      return state.filter(i => i !== action.data)
+      return {...state, current:state.current.filter(i => i !== action.data)}
     case 'INIT_OPTIONS':
       return action.data
     case 'RESET_OPTIONS':
-      return 
+      return {...state, current:[...state.all]}
     default:
       return state
   }

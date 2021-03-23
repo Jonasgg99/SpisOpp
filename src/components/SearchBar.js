@@ -15,7 +15,8 @@ const SearchBar = () => {
 
   const [value, setValue] = useState(null);
 
-  const options = useSelector(state => state.options)
+  const options = useSelector(state => state.options.current)
+
   return (
       <form>
       <Autocomplete
