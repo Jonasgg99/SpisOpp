@@ -3,13 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';
 import { useSelector, useDispatch } from 'react-redux'
-import { removeIngredient } from '../reducers/filterReducer'
+import { removeIngredient, removeAllIngredients } from '../reducers/filterReducer'
 import { addOption } from '../reducers/optionReducer'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'start',
     flexWrap: 'wrap',
     listStyle: 'none',
     padding: theme.spacing(0.5),
@@ -30,8 +30,9 @@ export default function ChipsArray() {
     dispatch(removeIngredient(ingredient))
   };
 
+  if (ingredients.length !== 0) {
   return (
-    <Paper component="ul" className={classes.root}>
+    <Paper elevation={0} component="ul" className={classes.root}>
       {ingredients.map((data) => {
         let icon;
 
@@ -46,6 +47,14 @@ export default function ChipsArray() {
           </li>
         );
       })}
+      <Chip 
+        color="secondary" 
+        className={classes.chip} 
+        label="Clear all" 
+        onClick={() => dispatch(removeAllIngredients())} />
     </Paper>
   );
+    } else {
+      return null
+    }
 }

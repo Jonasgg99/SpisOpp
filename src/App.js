@@ -4,6 +4,7 @@ import List from './components/List'
 import Notification from './components/Notification'
 import ChipsArray from './components/Pantry'
 import {initializeRecipes} from './reducers/recipeReducer'
+import { initializeOptions } from './reducers/optionReducer'
 import { useDispatch } from 'react-redux'
 
 //material-ui
@@ -14,8 +15,8 @@ const App = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(initializeRecipes())
+    dispatch(initializeOptions())
   }, [dispatch])
-
 
   return (
     <Container>

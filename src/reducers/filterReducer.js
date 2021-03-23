@@ -20,6 +20,12 @@ export const removeIngredient = (data) => {
   }
 }
 
+export const removeAllIngredients = () => {
+  return {
+    type: 'REMOVE_ALL'
+  }
+}
+
 const filterReducer = (state = { text: '', ingredients: [] }, action) => {
   switch(action.type) {
     case 'SET_FILTER':
@@ -31,6 +37,8 @@ const filterReducer = (state = { text: '', ingredients: [] }, action) => {
       return {...state, ingredients: state.ingredients.filter(item => item !== action.data)}
     case 'CLEAR_TEXT':
       return {...state, text:''}
+    case 'REMOVE_ALL':
+      return {...state, ingredients: []}
     default:
       return state
   }

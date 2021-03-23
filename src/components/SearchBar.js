@@ -6,27 +6,15 @@ import { removeOption } from '../reducers/optionReducer'
 
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import Button from '@material-ui/core/Button'
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
 
 const SearchBar = () => {
   const filterText = useSelector(state => state.filter.text)
-  const ingredients = useSelector(state => state.filter.ingredients)
   const dispatch = useDispatch()
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    if (!ingredients.includes(filterText)) {
-      dispatch(addIngredient(filterText))
-      dispatch(notificationChange(`${filterText} added`, 5))
-      dispatch({type:'CLEAR_TEXT'})
-    } else {
-      dispatch({type:'CLEAR_TEXT'})
-    }
-  }
-
   const [value, setValue] = useState(null);
+
   const options = useSelector(state => state.options)
   return (
       <form>
@@ -42,6 +30,7 @@ const SearchBar = () => {
         onChange={(event, newValue) => {
           console.log('value is ', newValue);
           dispatch(addIngredient(newValue))
+          dispatch(notificationChange(`${newValue} added`,5))
           dispatch(removeOption(newValue))
           setValue(null);
           dispatch({type:'CLEAR_TEXT'})
