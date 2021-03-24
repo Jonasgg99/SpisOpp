@@ -1,7 +1,6 @@
 import recipeService from '../services/recipes'
 
 export const initializeRecipes = () => {
-  console.log('dispatching init');
   return async dispatch => {
     const recipes = await recipeService.getAll()
     dispatch({

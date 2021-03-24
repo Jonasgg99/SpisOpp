@@ -2,11 +2,19 @@
   "recipes": [
     {
       "name": "soup",
-      "ingredients": ["carrots", "onion", "beef"]
+      "ingredients": ["carrots", "onion", "beef"],
+      "time": 30,
+      "desc": "en suppe med løk, gulrot og biff"
+
     },
     {
       "name": "meat",
-      "ingredients": ["chicken", "lard", "beef"]
+      "ingredients": ["chicken", "lard", "beef"],
+      "time": 10,
+      "desc": "en kjøttrett"
     }
+  ],
+  "options": [
+    "carrots","løk","tomat","tomatjuice"
   ]
 }

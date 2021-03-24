@@ -8,6 +8,7 @@ import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
+import SearchIcon from '@material-ui/icons/Search';
 
 const SearchBar = () => {
   const filterText = useSelector(state => state.filter.text)
@@ -27,11 +28,11 @@ const SearchBar = () => {
         handleHomeEndKeys
         clearOnBlur
         autoHighlight
+        
         value={value}
         onChange={(event, newValue) => {
           console.log('value is ', newValue);
           dispatch(addIngredient(newValue))
-          dispatch(notificationChange(`${newValue} added`,5))
           dispatch(removeOption(newValue))
           setValue(null);
           dispatch({type:'CLEAR_TEXT'})
@@ -42,7 +43,7 @@ const SearchBar = () => {
           dispatch(filterChange(newInputValue))
         }}
         renderInput={(params) => (
-          <TextField {...params} label="Ingrediens" variant="outlined" />
+          <TextField {...params} label="Legg til" variant="outlined" />
           )}
           renderOption={(option, { inputValue }) => {
             const matches = match(option, inputValue);

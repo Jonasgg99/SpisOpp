@@ -1,5 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import RecipeCard from './RecipeCard'
+import Grid from '@material-ui/core/Grid'
 
 
 const List = () => {
@@ -13,7 +15,7 @@ const List = () => {
     )
     return filteredList
   }
-  
+
   return (
     <div>
       {filterList(list).map(recipe => 
@@ -24,6 +26,11 @@ const List = () => {
           <div>Image here</div>
         </div>
         )}
+        <Grid container spacing={3}>
+          <Grid item xs={6}>
+        <RecipeCard title="Rett" time="30" />
+        </Grid>
+        </Grid>
     </div>
   )
 }

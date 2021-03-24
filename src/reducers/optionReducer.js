@@ -1,3 +1,4 @@
+import optionsService from '../services/options'
 
 export const removeOption = (data) => {
   return {
@@ -14,10 +15,12 @@ export const addOption = (data) => {
 }
 
 export const initializeOptions = () => {
-  return {
-    type:'INIT_OPTIONS',
-    data: {all:['','carrots','løk','tomat','tomatjuice'],
-            current:['','carrots','løk','tomat','tomatjuice']}
+  return async dispatch => {
+    const options = await optionsService.get()
+    dispatch({
+      type: 'INIT_OPTIONS',
+      data: options
+    })
   }
 }
 
@@ -35,7 +38,7 @@ const optionReducer = (state = {current:[],all:[]}, action) => {
     case 'REMOVE_OPTION':
       return {...state, current:state.current.filter(i => i !== action.data)}
     case 'INIT_OPTIONS':
-      return action.data
+      return {current:action.data, all:action.data}
     case 'RESET_OPTIONS':
       return {...state, current:[...state.all]}
     default:
