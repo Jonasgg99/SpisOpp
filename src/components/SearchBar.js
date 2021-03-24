@@ -1,14 +1,13 @@
 import React, {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { filterChange, addIngredient } from '../reducers/filterReducer'
-import { notificationChange } from '../reducers/notificationReducer'
 import { removeOption } from '../reducers/optionReducer'
 
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
-import SearchIcon from '@material-ui/icons/Search';
+/*import SearchIcon from '@material-ui/icons/Search';*/
 
 const SearchBar = () => {
   const filterText = useSelector(state => state.filter.text)

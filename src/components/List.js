@@ -17,25 +17,23 @@ const List = () => {
   }
 
   return (
-    <div>
-      {filterList(list).map(recipe => 
-        <div key={recipe.name}>
-          <div>
-            <h2>{recipe.name}</h2>
-          </div>
-          <div>Image here</div>
-        </div>
+      <Grid container spacing={3}>
+        {filterList(list).map(recipe => 
+          <Grid item xs={12} sm={3}>
+            <RecipeCard title={recipe.name} time={recipe.time} desc={recipe.desc} />
+          </Grid>
         )}
-        <Grid container spacing={3}>
-          <Grid item xs={6}>
-        <RecipeCard title="Rett" time="30" />
-        </Grid>
-        </Grid>
-    </div>
+      </Grid>
   )
 }
 
 export default List
+
+/*<Grid container spacing={3}>
+          <Grid item xs={6}>
+        <RecipeCard title="Rett" time="30" />
+        </Grid>
+        </Grid>
 
 /*const test = ['carrot','onion']
 const test2 = ['carrot',]

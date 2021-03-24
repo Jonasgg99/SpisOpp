@@ -58,6 +58,11 @@ export default function ChipsArray() {
     </Paper>
   );
     } else {
-      return null
+      return (null
+        /*<Paper elevation={0} className={classes.root}>
+        <Chip className={classes.chip} disabled />
+        </Paper>*/
+        )
+
     }
 }

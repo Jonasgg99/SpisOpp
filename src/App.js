@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 
 //material-ui
 import Container from '@material-ui/core/Container'
+import { Typography } from '@material-ui/core'
 
 
 const App = () => {
@@ -20,7 +21,9 @@ const App = () => {
 
   return (
     <Container>
-      <h1>Restemat</h1>
+      <Typography variant="h4">
+        Bruk Opp!
+      </Typography>
       <Notification />
       <SearchBar />
       <ChipsArray />

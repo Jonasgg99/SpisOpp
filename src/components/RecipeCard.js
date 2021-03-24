@@ -11,14 +11,14 @@ import Button from '@material-ui/core/Button'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import IconButton from '@material-ui/core/IconButton'
 
-const RecipeCard = ({ title, time }) => {
+const RecipeCard = ({ title, time, desc }) => {
   return (
     <Card>
       <CardActionArea>
         <CardMedia
           component="img"
           alt="recipe"
-          height="140"
+          height="100"
           title="recipe"
         />
         <CardContent>
@@ -30,7 +30,7 @@ const RecipeCard = ({ title, time }) => {
               <TimerIcon />{time}m
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Beskrivelse
+              {desc}
             </Typography>
           </Box>
         </CardContent>
